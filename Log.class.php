@@ -1,19 +1,32 @@
 <?php
+  /**
+  * Enregistrement de l'utilisation des équipements
+  * et recherche des données
+  */
+  require('Agenda.class.php');
+  require('Fichier.class.php');
+  require('FichierCSV.class.php');
 
-class log(){
+  class Log{
 
-  private $id_Equip  //int not null
-          $id_user   //int not null
-          $id_debut  //date not null
-          $id_fin    //date not null
-          $id_lieu   //int not null
-          $id_animation   //int null
+    public function record($id_Equip,$id_user){
+      $myfile = new FichierCSV("","Utilisation");
+      $date_deb = date("c");
+      $date_fin = "";
+      //$lieu = equipement_lieu($id_Equip);
 
-  //methode qui recevra les requetes des entiers
-
-  public log-request (id_Equip,id_user){
-    return true;//boolean
+      $agenda = new Agenda();
+      $result = $agenda->get();
+      if (!is_array($result)){
+        return ("error : ".$result);
+      }else{
+        $event = $result[1];
+        $lieu = $result[2];
+      }
+      $list = [$id_Equip,$id_user,$date_deb,$date_fin,$lieu,$event];
+      $myfile->write_csv($list);
+      return ("ok");
     }
-  }
 
- ?>
+  }
+?>

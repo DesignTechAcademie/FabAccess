@@ -1,11 +1,21 @@
 <?php
   /**
-   * Manipulation de fichier CSV avec la clasee Fichier.class.php
+   * Manipulation de fichier CSV avec la classe Fichier.class.php
    */
   class FichierCSV extends Fichier{
 
     public function __construct($chemin,$nom){
       parent::__construct($chemin,$nom,".csv");
+    }
+
+    public function write_csv($list){
+      $contenu = "";
+      foreach ($list as $value) {
+        $contenu .= $value.";";
+      }
+      $contenu = substr($contenu,0,-1);
+      $contenu .= "\n";
+      $this->ecrire($contenu);
     }
 
     public function read_id_0($id){   // cherche d'un ID dans la 1ere colonne d'un fichier csv

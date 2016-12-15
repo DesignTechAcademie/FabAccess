@@ -19,7 +19,7 @@
       $fichier = fopen($this->_nomFichier,"r");
       $contenu = "";
       while($line = fgets($fichier)){
-        $contenu = $contenu."<br />".$line;
+        $contenu = $contenu.$line;
       }
       fclose($fichier);
       return $contenu;

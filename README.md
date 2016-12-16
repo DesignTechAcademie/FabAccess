@@ -11,3 +11,8 @@ Faciliter la gestion du FabLab par ses administrateurs.
 - vérifier la validation des adhésions des membres
 - contrôler l’accès aux équipements (niveau d’habilitation)
 - gérer le compte prépayé (consommables)
+
+##Principes
+
+1 membre    =     1 badge RFID (ou NFC)
+

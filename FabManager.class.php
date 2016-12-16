@@ -5,7 +5,7 @@ require_once('FichierCSV.php');
 
 //On crée la classe FabManager qui est la fille de la classe Concierge
 class FabManager extends Concierge{
-  
+
   public function __construct($Nom, $Prenom, $ID, $dateInscrip){
 
     parent::__construct($Nom, $Prenom, $ID, $dateInscrip);

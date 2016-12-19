@@ -1,11 +1,11 @@
 <?php
-abstract class User{
+class User{
 
   protected $Nom;
   protected $Prenom;
   protected $IDbadge;
   protected $dateInscrip;
-  public function __construct($Nom, $Prenom, $IDbadge, $dateInscrip);
+  public function __construct($Nom, $Prenom, $IDbadge, $dateInscrip){
   
     $this->Nom = $Nom;
     $this->Prenom = $Prenom;

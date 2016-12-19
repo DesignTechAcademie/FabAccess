@@ -1,97 +1,79 @@
+ 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <?php
+// autor 
 
-class stat{
-
-
-    public function __construct($_date,$id_Equip)
-        {
-            $date = date("dmY");
-            $this ->_fichier = $_date.$_datedebut.$_datefin;
-        }
-
+ class stat{
+ 	
+    function _construct($_date,$id_Equip) {
+              $date = date("dmY");
+              $this ->_fichier = $_date.$_datedebut.$_datefin;
+      
     /* L'accès aux informations a-t-il échoué ? */
-      if (!$stat) {
-      } else {
-    /*
-     * Nous voulons que la date et heure d'accès soit d'une
-     * semaine après la date courante.
-     */
-          $atime = $stat['atime'] + 604800;
-    /* Touchons le fichier ! */
-      if(!touch('', time(), $atime)) {
-        echo 'Échec lors de l\'appel à la fonction touch()...';
-      } else {
-        echo 'L\'appel à touch() a réussi...';
+          if (!$stat) {
+             echo 'L\'appel à stat() a échoué...';
+           } else {
+     /*
+      * Nous voulons que la date et heure d'accès soit d'une
+      * semaine après la date courante.
+      */
+           $atime = $stat['atime'] + 604800;
+           }
+      
+     /* Touchons le fichier ! */
+       if(!touch('', time(), $atime)) {
+         echo 'Échec lors de l\'appel à la fonction touch()...';
+       } else {
+         echo 'L\'appel à touch() a réussi . ';
+       }  
       }
-    }
-  }
+       
+   function getdata ($date_debut,$date_fin,$id_Equi = null){
+     $this -> id_Equip = $date.$datedebut.$datefin; 
 
-
-
-  public function get-data ($datedebut,$datefin,$id_Equi = null,.. ){
-    $this ->_id_Equip = $date.$datedebut.$datefin;
-}
-
-    public function lire($données)
-  {
-    if($id_Equip)
-    {echo "ok";
-
-    }else {
-    echo "erreur";
-    {
-
-
-  $_fichier =  fopen('');
-               fgets($_fichier);
-               fclose($_fichier);
-
-              //variable voir<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> si la date est entre la date de début et de fin la lire closed
-              //sinon continuer de lire le fichier
-            if($date)
-             {($datedebut<$datedefin)
-               echo "ok";
-            }else {
-                echo "continuer de lire le fichier";
-             {
-  }
-        return $data;//Json
-
-public get-data-graph ($datedebut, $datefin){
-        $data=this->get-data();
-        return $img;
-  }
-
-public get-data-table ($dd,$df){
-
-
-
-  //données factices
-  //echo 'Nom : ', $identite['nom'] ,'<br/>';
-    echo 'datedebut : ', $id_date_debut['date début'] ,'<br/>';
-    echo 'lieu : ', $id_lieu ['lieu'] ,'<br/>';
-    echo 'Animation : ', $id_animation ['animation'] ,'<br/>';
-    echo 'datefin : ', $id_datefin ['datefin'];'<br/>';
-  //
-  }
+     if($id_Equip){
+     	echo "ok";
+     }else {
+     echo "erreur";
+     }
+   }
+  
+     function getArray($date_debut,$date_fin,$id_Equi) {
+     	
+     	//Un tableau existant peut être modifié en y assignant explicitement des valeurs.
+     	//L'assignation d'une valeur dans un tableau est effectué en spécifiant la clé, entre crochets. La clé peut également ne pas être renseignée, sous la forme : [].
+     	
+     	$arr[clé] = valeur;
+     	$arr[] = valeur;
+     	
+     	error_reporting(E_ALL);
+     	ini_set('display_errors', true);
+     	ini_set('html_errors', false);
+     	
+     	// Tableau simple :
+     	
+     	$array = array(1, 2);
+     	$count = count($array);
+     	
+     	for ($i = 0; $i < $count; $i++) {
+     		echo "\nVérification de $i : \n";
+     		echo "Mauvais : " . $array['$i'] . "\n";
+     		echo "Bon : " . $array[$i] . "\n";
+     		echo "Mauvais : {$array['$i']}\n";
+     		echo "Bon : {$array[$i]}\n";
+     	}
+     	return array(1, 2, 3);
+      
+      }
  }
-}
-?>
-<html xmlns="http://www.w3.org/1999/xhtml">
+       
+ ?>
+ 
 
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <title>tableau</title>
-    <link rel="stylesheet" href="Stats.class.css" />
-  </head>
-
-    <body>
-    <table border="1px">
-          <td>&&&&&</td>
-          <td>Cumul</td>
-          <td>Moyenne</td>
-          <td>Ratio</td>
-    </table>
-  </body>
-    </html>
+    
+          
+          
+    
+  
+  

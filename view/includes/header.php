@@ -1,5 +1,8 @@
 <!DOCTYPE html>
-<html>      <!--By Kev -->
+<html> 
+<!-- 
+	@author Kevin Landry <kevin.landry@etu.univ-st-etienne.fr>
+ -->
 	<head>
   		<meta charset="utf-8">
   		<link rel="stylesheet" href="view/css/style.css">

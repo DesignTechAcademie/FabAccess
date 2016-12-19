@@ -4,11 +4,27 @@
  * 
  * Manipulation du fichier JSON de openagenda
  * renvoie une chaine si erreur ou pas d'événement
+ * 
+ * methode get :
  * renvoie un tableau avec trois données de l'événement :
- * uid, titre, lieu
+ * uid event, titre, lieu
+ * 
+ * methode get_all :
+ * renvoie un tableau 2 dimensions avec  six données de l'événement :
+ * uid event, titre, uid lieu, lieu, date début, date fin
+ * 
+ * utilisation :
+ * $agenda = new Agenda ();
+ *		$result = $agenda->get ( $id_lieu );
+ *		if (! is_array ( $result )) {
+ *			return ("error : " . $result);
+ *		} else {
+ *			$event = $result [1];
+ *			$lieu = $result [2];
+ *		}
+ * 
  */
-include('config.inc.php');
-
+include ('config.inc.php');
 class Agenda {
 	public function get($lieu) {
 		$list = array ();
@@ -43,5 +59,48 @@ class Agenda {
 			}
 		}
 		return ("no event found");
+	}
+	public function get_all() {
+		$tableau = array ();
+		$mesevents = file_get_contents ( "OPENAGENDA_URL" ); // récupération du fichier Json
+		// $monfichier = new Fichier("","events",".json");
+		// $mestrucs = $monfichier->lire();
+		
+		$json_ok = json_decode ( $mesevents ); // construction de l'objet
+		if (json_last_error () != 0) {
+			return ("Json error : " . json_last_error ());
+		}
+		
+		$number = $json_ok->{'total'}; // nombre d'événements
+		$trouve = false;
+		for($i = 0; $i < $number; $i ++) {
+			$list = array ();
+			$date_arr = $json_ok->{'events'} [$i]->{'timings'}; // dates des événements
+			for($j = 0; $j < count ( $date_arr ); $j ++) {
+				$start = $json_ok->{'events'} [$i]->{'timings'} [$j]->{'start'};
+				$end = $json_ok->{'events'} [$i]->{'timings'} [$j]->{'end'};
+				$sta_dat = new DateTime ( $start ); // objets date
+				$end_dat = new DateTime ( $end );
+				$today = new DateTime ();
+				if ($sta_dat < $today) { // comparaison des dates
+					if ($end_dat > $today) {
+						$list [] = $json_ok->{'events'} [$i]->{'uid'};
+						$list [] = $json_ok->{'events'} [$i]->{'title'}->{'fr'};
+						$list [] = $json_ok->{'events'} [$i]->{'location'}->{'uid'};
+						$list [] = $json_ok->{'events'} [$i]->{'location'}->{'name'};
+						$list [] = $json_ok->{'events'} [$i]->{'timings'} [$j]->{'start'};
+						$list [] = $json_ok->{'events'} [$i]->{'timings'} [$j]->{'end'};
+						$tableau [] = $list;
+						$trouve = true;
+						break;
+					}
+				}
+			}
+		}
+		if ($trouve) {
+			return ($tableau);
+		} else {
+			return ("no event found");
+		}
 	}
 }

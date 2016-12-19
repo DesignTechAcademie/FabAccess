@@ -11,8 +11,7 @@ class Boitier {
 		$this->_mac = $mac;
 	}
 	
-	// Méthode pour créer un fichier CSV qui contient l'affecattion des équipements
-	public function affectation_boitier() {
+	public function recherche_boitier() {
 		$monfichier = new FichierCSV ( "Affectation_Boitier" );
 		$nom_equip = $monfichier->read_id_0 ( $this->_mac );
 		return ($nom_equip);

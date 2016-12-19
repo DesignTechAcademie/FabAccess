@@ -28,4 +28,16 @@
   }else {
   	
   }
+
+  // données factices
+  $id_equipement = "10";
+  $id_user = "5";
+  $id_lieu = "32971823";
+
+
+  $monlog = new Log();
+  $result = $monlog->record($id_equipement, $id_user, $id_lieu);
+  echo $result;
+
+
 ?>

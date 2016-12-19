@@ -1,28 +1,26 @@
 <!DOCTYPE html>
 <html>      <!--By Kev -->
-  <head>
-  	<meta charset="utf-8">
-  	<link rel="stylesheet" href="view/css/style.css" </link>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
-  	<title>Open Factory</title>
+	<head>
+  		<meta charset="utf-8">
+  		<link rel="stylesheet" href="view/css/style.css" </link>
+    	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    	<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+  		<title>Open Factory</title>
   </head>
   <body>
-
-  	<nav class="navtop">
+	<nav class="navtop">
   		<div class="carre">
   			<h1>PAGE ADMIN</h1>
   		</div>
-      <div class="login_box">
-          <form method="POST" action="">
+      	<div class="login_box">
+          	<form method="POST" action="">
             	<input type="text" name="username" placeholder="Username ou email"/>
-              <input type="password" name="pass" placeholder="******">
-              <input type="submit" name="btn_login" class="btn" value="Connexion">
-          </form>
-      </div>
-  	</nav>
-
+              	<input type="password" name="pass" placeholder="******">
+              	<input type="submit" name="btn_login" class="btn" value="Connexion">
+          	</form>
+      	</div>
+	</nav>
     <?php
-    require 'menu.php';
+    	require 'menu.php';
     ?>

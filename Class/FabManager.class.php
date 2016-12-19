@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * @author Tamime Belguendouz <tamime.belguendouz@gmail.com>
+ */
+
 //On appelle la classe FichierCSV une fois
 require_once('FichierCSV.php');
 
@@ -37,8 +41,9 @@ class FabManager extends Concierge{
   }
 
   //Méthode pour clore un incident
-  public function clore_incident()
-
+  public function clore_incident(){
+  	
+  }
 
 }
 

@@ -1,37 +1,34 @@
 <?php
 class Bank {
-	protected $_cptp;
-	protected $_tarif;
+	protected $_Cptp;
+	protected $_Tarif;
 	protected $_Infoid;
 	
 	
 	public function __construct($cptp, $tarif, $Infoid){
-		$this-> $_cptp = $cptp;
-		$this-> $_tarif = $tarif;
-		$this-> $_Infoid = $Infoid;
+		$this-> _Cptp = $cptp;
+		$this-> _Tarif = $tarif;
+		$this-> _Infoid = $Infoid;
 	}
 	
 	public function getCptp(){
-		return $this -> $cptp;
+		return $this -> _Cptp;
 	}
 	public function getTarif(){
-		return $this -> $tarif;
+		return $this -> _Tarif;
 	}
 	
 	private function getInfoid(){
-		return $this -> $infoid;
+		return $this -> _Infoid;
 	}
 	
 
 
 	//Pour le compte prépayé
-	public function __construct($file){
-		$this->_cptp= $file;
-	
-	}	
+
 	public function lire_(){
-		$file = fopen($this->cptp,"r");
-		$contenu = "$_cptp";
+		$file = fopen($this->_Cptp,"r");
+		$contenu = _Cptp;
 		while($line=fgets($file)){
 			$contenu .= $line;
 		}
@@ -48,7 +45,7 @@ class Bank {
 	public function __construct($file){
 		$this->_tarif= $file;
 	}
-	public function lire_(){
+	public function lireTarif(){
 		$file = fopen($this->tarif,"r");
 		$contenu = "$tarif";
 		while($line=fgets($file)){
@@ -64,10 +61,7 @@ class Bank {
 	}
 	
 	//Pour les infos de l'utilsateur 
-	public function __construct($file){
-		$this->_Infoid= $file;
-		
-	}
+
 	public function lire_(){
 		$file = fopen($this->infoid,"r");
 		$contenu = "$_Infoid";

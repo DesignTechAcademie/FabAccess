@@ -1,4 +1,8 @@
 <?php
+
+/**
+ * @author Flavien CERIANI <flavien.ceriani@gmail.com>
+ */
 require ('bank.class.php');
 require ('FichierCSV.php');
 

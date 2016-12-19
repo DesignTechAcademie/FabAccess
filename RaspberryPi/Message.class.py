@@ -1,4 +1,7 @@
 class Message:
+#
+# @author Junier Christophe <christophe.junier@gmail.com>
+#
 #toutes les ligne "print" sont vouées à disparaitre elle sont uniquement là pour les batteries de tests. (christophe)
 
     def __init__(self, username):      #initialisation de la class avec le nom de la personne visée en paramètre.

@@ -7,10 +7,12 @@
  * renvoie un tableau avec trois données de l'événement :
  * uid, titre, lieu
  */
+include('config.inc.php');
+
 class Agenda {
 	public function get($lieu) {
 		$list = array ();
-		$mesevents = file_get_contents ( "https://openagenda.com/agendas/61707059/events.json?" ); // récupération du fichier Json
+		$mesevents = file_get_contents ( "OPENAGENDA_URL" ); // récupération du fichier Json
 		// $monfichier = new Fichier("","events",".json");
 		// $mestrucs = $monfichier->lire();
 		

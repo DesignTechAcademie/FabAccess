@@ -5,8 +5,8 @@
  * Manipulation de fichier CSV avec la classe Fichier.class.php
  */
 class FichierCSV extends Fichier {
-	public function __construct($chemin, $nom) {
-		parent::__construct ( $chemin, $nom, ".csv" );
+	public function __construct($nom) {
+		parent::__construct ( "../Datas", $nom, ".csv" );
 	}
 	public function write_csv($list) {
 		$contenu = "";

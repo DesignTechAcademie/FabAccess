@@ -6,12 +6,12 @@ spl_autoload_register(function ($class) {
 
 
 <main>
-	<div id ="row">
+	<div class ="row">
 		<h2>Interface Admin</h2>
 		<h5>Bienvenue Admin, content de te revoir.</h5>
 	</div>
     <div class="row">
-        <!-- <p>alalala</p> -->
+        <!-- Mettez vos essais de code ici-->
 
         <h2>Evenements du jour</h2>
         <?php

@@ -1,4 +1,9 @@
 <?php
+
+/**
+ * @author Alexandre LEHE <alex.lehe@hotmail.com >
+ */    
+ 
 class Bank {
 	protected $_Cptp;
 	protected $_Tarif;

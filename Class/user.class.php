@@ -1,4 +1,9 @@
 <?php
+
+/**
+ * @author Nicolas, Germain, Clément <nicolas42500@hotmail.fr>
+ */
+
 class User{
 
   protected $Nom;

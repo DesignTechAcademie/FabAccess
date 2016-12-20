@@ -9,75 +9,79 @@ class Bank {
 	protected $_Tarif;
 	protected $_Infoid;
 	
-	
-	public function __construct($cptp, $tarif, $Infoid){
-		$this-> _Cptp = $cptp;
-		$this-> _Tarif = $tarif;
-		$this-> _Infoid = $Infoid;
+	//Constructeur d'un objet Bank
+	public function __construct($cptp, $tarif, $infoid){
+		$this->_Cptp = $cptp;
+		$this->_Tarif = $tarif;
+		$this->_Infoid = $infoid;
 	}
-	
+
+	//getter pour renvoyer le montant du compte prépayé
 	public function getCptp(){
-		return $this -> _Cptp;
+		return $this->_Cptp;
 	}
+
+	//getter pour renvoyer le tarif
 	public function getTarif(){
-		return $this -> _Tarif;
+		return $this->_Tarif;
 	}
-	
-	private function getInfoid(){
-		return $this -> _Infoid;
+
+	//getter pour renvoyer ????
+	private function getId(){
+		return $this->_Infoid;
 	}
 	
 
 
 	//Pour le compte prépayé
 
-	public function lire_(){
+	public function lireCptp(){
 		$file = fopen($this->_Cptp,"r");
-		$contenu = _Cptp;
+		$contenu = "";
 		while($line=fgets($file)){
 			$contenu .= $line;
 		}
 		fclose($file);
 		return $contenu;
 	}
-	public function ecrire($contenu){
-		$file = fopen($this->cptp,"w");
+
+	public function ecrireCptp($contenu){
+		$file = fopen($this->_Cptp,"w");
 		fputs($file,$contenu);
 		fclose($file);
 	}
 	
 	//Pour les tarif
-	public function __construct($file){
-		$this->_tarif= $file;
-	}
+
+
 	public function lireTarif(){
-		$file = fopen($this->tarif,"r");
-		$contenu = "$tarif";
+		$file = fopen($this->_Tarif,"r");
+		$contenu = "";
 		while($line=fgets($file)){
 			$contenu .= $line;
 		}
 		fclose($file);
 		return $contenu;
 	}
-	public function ecrire($contenu){
-		$file = fopen($this->tarif,"w");
+	public function ecrireTarif($contenu){
+		$file = fopen($this->_Tarif,"w");
 		fputs($file,$contenu);
 		fclose($file);
 	}
 	
 	//Pour les infos de l'utilsateur 
 
-	public function lire_(){
-		$file = fopen($this->infoid,"r");
-		$contenu = "$_Infoid";
+	public function lireInfo(){
+		$file = fopen($this->_Infoid,"r");
+		$contenu = "";
 		while($line=fgets($file)){
 			$contenu .= $line;
 		}
 		fclose($file);
 		return $contenu;
 	}
-	public function ecrire($contenu){
-		$file = fopen($this->infoid,"w");
+	public function ecrireInfo($contenu){
+		$file = fopen($this->_Infoid,"w");
 		fputs($file,$contenu);
 		fclose($file);
 	}

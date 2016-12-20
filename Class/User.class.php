@@ -6,48 +6,43 @@
 
 class User{
 
-  protected $Nom;
-  protected $Prenom;
-  protected $IDbadge;
-  protected $dateInscrip;
-  public function __construct($Nom, $Prenom, $IDbadge, $dateInscrip){
+  protected $nom;
+  protected $prenom;
+  protected $idbadge;
+  protected $dateinscrip;
+  public function __construct($nom, $prenom, $idbadge, $dateinscrip){
   
-    $this->Nom = $Nom;
-    $this->Prenom = $Prenom;
-    $this->IDbadge = $IDbadge;
-    $this->dateInscrip = $dateInscrip;
+    $this->nom = $nom;
+    $this->prenom = $prenom;
+    $this->idbadge = $idbadge;
+    $this->dateinscrip = $dateinscrip;
   }
 
-  public function getNom(){
-    return  $this->Nom;
-
-  }
-
-  public function getPrenom(){
-    return  $this->Prenom;
-
-  }
-  public function setNom($newNom){
-    $this->nom = $newNom;
+  public function getnom(){
+    return  $this->nom;
 
   }
 
-  public function setPrenom($newPrenom){
-    $this->Prenom = $newPrenom;
+  public function getprenom(){
+    return  $this->prenom;
 
   }
-  public function getIDbadge(){
-    $this->IDbadge = $newIDbadge;
-
-  }
-
-  public function getdateInscrip(){
-    $this->dateInscrip = $newdateInscrip;
+  public function setnom($newnom){
+    $this->nom = $newnom;
 
   }
 
-  abstract public function getpresentation(){
+  public function setprenom($newprenom){
+    $this->Prenom = $newprenom;
 
+  }
+  public function getidbadge(){
+    $this->idbadge = $newidbadge;
+
+  }
+
+  public function getdateinscrip(){
+    $this->dateinscrip = $newdateinscrip;
 
   }
 

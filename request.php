@@ -20,7 +20,7 @@
   // recherche du lieu ou est le boitier/equipement
   
   if ($equip_demandeur == "accueil"){
-  	$monlog = new Log();
+  	$monlog = new Log("Access");
   	$result = $monlog->record_inout($id_user, $id_lieu);
   	// vérifier fichier log pour savoir si entree ou sortie
   	$dolibarr = new Dolibarr();
@@ -29,7 +29,7 @@
   	$estajour = $dolibarr->get_ajour($uid_user);
   	
   }else {
-  	
+  	$monlog = new Log("Utilisation");
   }
 
   // données factices

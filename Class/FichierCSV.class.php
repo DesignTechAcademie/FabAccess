@@ -5,9 +5,19 @@
  * Manipulation de fichier CSV avec la classe Fichier.class.php
  */
 class FichierCSV extends Fichier {
+	/**
+	 * constructeur
+	 * 
+	 * @param string $nom du fichier
+	 */
 	public function __construct($nom) {
 		parent::__construct ( "../Datas", $nom, ".csv" );
 	}
+	/**
+	 * ecrire à la suite dans un fichier csv
+	 * 
+	 * @param array $list
+	 */
 	public function write_csv($list) {
 		$contenu = "";
 		foreach ( $list as $value ) {
@@ -17,6 +27,13 @@ class FichierCSV extends Fichier {
 		$contenu .= "\n";
 		$this->ecrire ( $contenu );
 	}
+	/**
+	 * recherche d'un ID en 1ere colonne d'un fichier
+	 * un seul ID dans le fichier ou le premier trouvé
+	 * 
+	 * @param string $id
+	 * @return string[] liste des données de la ligne
+	 */
 	public function read_id_0($id) { // cherche d'un ID dans la 1ere colonne d'un fichier csv
 		if (ctype_digit ( $id ) && $id != "") {
 			$contenu = $this->lire_array ();
@@ -30,6 +47,13 @@ class FichierCSV extends Fichier {
 		}
 		return 0;
 	}
+	/**
+	 * recherche d'un item dans un fichier
+	 * un seul item dans le fichier ou premier trouvé
+	 * 
+	 * @param string $item
+	 * @return string|array si non trouvé|liste des données de la ligne
+	 */
 	public function search_item($item) { // recherche d'un item dans le fichier csv
 		if ($item != "") {
 			$contenu = $this->lire_array ();
@@ -45,6 +69,13 @@ class FichierCSV extends Fichier {
 		}
 		return 0;
 	}
+	/**
+	 * recherche d'un item dans un fichier
+	 * toutes les lignes du fichier
+	 * 
+	 * @param string $item
+	 * @return string|array si non trouvé|liste des données des lignes
+	 */
 	public function search_datas($item) { // recherche d'un item dans le fichier csv
 		$tableau = array ();
 		$trouve = 0;

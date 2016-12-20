@@ -13,36 +13,39 @@ class Concierge extends user{
 
     /**
      * Concierge constructor.
-     * @param $Nom
-     * @param $Prenom
-     * @param $ID
-     * @param $dateInscrip
+     * @param $nom
+     * @param $prenom
+     * @param $idbadge
+     * @param $dateinscrip
      */
-  public function __construct($Nom, $Prenom, $ID, $dateInscrip){
+  public function __construct($nom, $prenom, $idbadge, $dateinscrip){
 
-    parent::__construct($Nom, $Prenom, $ID, $dateInscrip);
+    parent::__construct($nom, $prenom, $idbadge, $dateinscrip);
 
   }
 
     /**
      * @param $ID
-     * @param $affectbadge
      * @param $IDbadge
+     *
      */
-  public function affectation_badge($ID, $affectbadge, $IDbadge){
-    $monfichier = new FichierCSV("", $affectbadge."_affectation");
+  public function affectation_badge($ID, $IDbadge){
+      $ID = $idbadge-> recherche_tag();
+      $fichier = new FichierCSV($monfichier);
     $list = [$ID, $IDbadge];
-    $nomFichier-> write_csv($list);
+      $idbadge-> write_csv($list);
   }
 
     /**
      * @param $ID
+     * @param $debit
+     * @param $cptp
      */
-  public function gestion_compte_prepaye($ID){
-    $fichier = new FichierCSV("", $gestionpre."_affectation");
-    $list = [$ID, ];
-    $nomFichier-> lire($list);
-    $nomFichier-> ecrire($list);
+  public function gestion_compte_prepaye($ID, $debit, $cptp){
+    $fichier = new Bank();
+    $list = [$ID, $debit, $cptp];
+    $fichier-> lireInfo();
+    $fichier-> ecrireInfo($list);
   }
 
     /**

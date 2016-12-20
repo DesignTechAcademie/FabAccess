@@ -37,7 +37,7 @@ class Agenda {
 		
 		$json_ok = json_decode ( $mesevents ); // construction de l'objet
 		if (json_last_error () != 0) {
-			return ("Json error : " . json_last_error ());
+			return ("[Error] fichier Json non décodé : " . json_last_error ());
 		}
 		
 		$number = $json_ok->{'total'}; // nombre d'événements
@@ -80,7 +80,7 @@ class Agenda {
 		
 		$json_ok = json_decode ( $mesevents ); // construction de l'objet
 		if (json_last_error () != 0) {
-			return ("Json error : " . json_last_error ());
+			return ("[Error] fichier Json non décodé : " . json_last_error ());
 		}
 		
 		$number = $json_ok->{'total'}; // nombre d'événements

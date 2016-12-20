@@ -30,7 +30,7 @@ class FichierCSV extends Fichier
         }
         $contenu = substr($contenu, 0, -1);
         $contenu .= "\n";
-        $this->ecrire($contenu);
+        return $this->ecrire($contenu);
     }
 
     /**

@@ -10,7 +10,7 @@
  * @author David Réchatin <david.rechatin@openscop.fr>
  */
 function is_error($variable) {
-    if (is_string($variable) && substr($variable,0,7)=="[Error]") {
+    if (is_string($variable) && (substr($variable,0,7)=="[Error]" || substr($variable,0,7)=="[error]")) {
         return true;
     } else {
         return false;

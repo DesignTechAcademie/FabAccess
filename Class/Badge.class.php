@@ -4,7 +4,6 @@
  *
  * classe qui retourne l'uid du membre avec son tag
  */
-require_once('FichierCSV.class.php');
 class Badge {
 	/**
 	 * 

@@ -26,9 +26,18 @@ class Fichier {
 	 * @param string $contenu
 	 */
 	public function ecrire($contenu) {
-		$fichier = fopen ( $this->_nomFichier, "a+" );
-		fputs ( $fichier, $contenu );
-		fclose ( $fichier );
+		if ( !file_exists ( $this->_nomFichier )) {
+			return "[Error] Fichier " . $this->_nomFichier . " introuvable !";
+		} else {
+			$fichier = fopen ( $this->_nomFichier, "a+" );
+			$retour = fputs ( $fichier, $contenu );
+			fclose ( $fichier );
+			if ($retour){
+				return "ok";
+			}else{
+				return "[Error] Impossible d'écrire dans le fichier " . $this->_nomFichier . " !";
+			}
+		}
 	}
 	/**
 	 * fonction lire un fichier
@@ -36,13 +45,17 @@ class Fichier {
 	 * @return string contenu du fichier
 	 */
 	public function lire() {
-		$fichier = fopen ( $this->_nomFichier, "r" );
-		$contenu = "";
-		while ( $line = fgets ( $fichier ) ) {
-			$contenu = $contenu . $line;
+		if ( !file_exists ( $this->_nomFichier )) {
+			return "[Error] Fichier " . $this->_nomFichier . " introuvable !";
+		} else {
+			$fichier = fopen ( $this->_nomFichier, "r" );
+			$contenu = "";
+			while ( $line = fgets ( $fichier ) ) {
+				$contenu = $contenu . $line;
+			}
+			fclose ( $fichier );
+			return $contenu;
 		}
-		fclose ( $fichier );
-		return $contenu;
 	}
 	/**
 	 * fonction lire un fichier

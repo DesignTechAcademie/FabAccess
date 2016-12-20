@@ -4,7 +4,6 @@
  *
  * classe qui retourne le nom de l'equipement avec son adresse Mac
  */
-require_once ('FichierCSV.class.php');
 class Boitier {
 	/**
 	 * 

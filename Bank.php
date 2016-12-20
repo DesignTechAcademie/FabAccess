@@ -41,7 +41,7 @@ class Bank {
 
 
     /**
-     * @return mixed
+     * @return test
      */
     public function getTarif(){
 		return $this->_Tarif;

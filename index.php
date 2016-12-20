@@ -3,15 +3,15 @@
 	require 'view/includes/header.php';
 
 	if(isset($_GET['page']) && $_GET['page'] == 'signup'){
-  		require 'controller/user/signupController.php';
+  		require 'controller/user/signup.php';
 	}
 
 	elseif(isset($_GET['page']) && $_GET['page'] == 'login'){
-  		require 'controller/user/loginController.php';
+  		require 'controller/user/login.php';
 	}
 
 	else{
-  		require 'controller/user/indexController.php';
+  		require 'controller/user/index.php';
 	}
 
 	require 'view/includes/footer.php';

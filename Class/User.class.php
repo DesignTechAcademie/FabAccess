@@ -33,7 +33,7 @@ class User{
   }
 
   public function setprenom($newprenom){
-    $this->Prenom = $newprenom;
+    $this->prenom = $newprenom;
 
   }
   public function getidbadge(){

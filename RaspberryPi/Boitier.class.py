@@ -3,6 +3,7 @@
 import serial
 import time
 import lcddriver
+from Message.class.py import *     #import de tout les modules de la class message (christophe junier)
 GPIO.cleanup()  # Initialisation du GPIOs
 GPIO.setmode(GPIO.BCM)  # Choix du mode de numérotation des ports : identique aux inscriptions sur le Cobbler
 GPIO.setup(12, GPIO.OUT) #led verte
@@ -71,48 +72,8 @@ else:
 
 
 
-class Message:
-
-    def __init__(self, username):
-        self._Username = username
-
-    def Afficher_Bonjour(self):
-        Message = "Bonjour " + self._Username + " !"
-        lcd.lcd_display_string(Message)
-        print(Message)
-
-    def Afficher_Aurevoir(self):
-        Message = "Aurevoir " + self._Username + " !"
-        lcd.lcd_display_string(Message)
-        print(Message)
-
-    def Afficher_Concierge(self):
-        Message = "Bonjour " + self._Username + ".Veuillez vous rendre auprès d'un gérant."
-        lcd.lcd_display_string(Message)
-        print(Message)
-
-    def Afficher_prix(self,prix):
-        Message = "1 unité sur cette machine coute " + prix
-        lcd.lcd_display_string(Message)
-        print(Message)
-
-    def Declarer_incident(self):
-        Message = self._Username + " vous souhaitez déclarer un incident ?"
-        lcd.lcd_display_string(Message)
-        print(Message)
-
-    def Afficher_Credit(self, credit):
-        if(credit == "0):
-            Message = "Vous n'avez plus de crédits"
-            lcd.lcd_display_string(Message)
-            print(Message)
-        else:
-            Message = "Il vous reste " + credit + " crédit(s)"
-            lcd.lcd_display_string(Message)
-            print(Message)
-
-
-test = Message("Christophe")
+#test pour voir si la class à bien été importer
+test = Message("Destinataire")
 test.Afficher_Bonjour()
 test.Afficher_Aurevoir()
 test.Afficher_Concierge()

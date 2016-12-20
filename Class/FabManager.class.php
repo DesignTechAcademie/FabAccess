@@ -5,7 +5,7 @@
  */
 
 //On appelle la classe FichierCSV une fois
-require_once('FichierCSV.php');
+require_once('FichierCSV.class.php');
 
 /**
  * Class FabManager

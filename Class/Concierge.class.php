@@ -3,7 +3,7 @@
 /**
  * @author Flavien CERIANI <flavien.ceriani@gmail.com>
  */
-require ('Bank.php');
+require('Bank.class.php');
 require ('FichierCSV.class.php');
 
 /**

@@ -1,7 +1,8 @@
 <?php
 /**
- * @author Julien Theze <julien.theze@gmail.com>
  * Ce fichier instancie un nouvel objet de la classe dolibarr
+ * 
+ * @author Julien Theze <julien.theze@gmail.com>
  */
 
 require('Class/Dolibarr.class.php');

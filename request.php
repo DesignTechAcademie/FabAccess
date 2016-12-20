@@ -4,6 +4,10 @@
  *
  * Communication avec les boitiers
  */
+
+require_once 'config.inc.php';
+require_once 'common.inc.php';
+
 spl_autoload_register(function ($class) {
     include 'Class/' . $class . '.class.php';
 });
@@ -28,30 +32,41 @@ if (is_error($uid_user)) {
 
 $boitier_demandeur = new Boitier($addr);
 $equip_demandeur = $boitier_demandeur->recherche_boitier();
+if (is_error($equip_demandeur)) {
+    echo "[Error] La requête ne peut pas être traitée...<br>" . $equip_demandeur;
+    exit();
+}
+$id_equipement = $equip_demandeur[1];
+$id_lieu_equipement = $equip_demandeur[2];
+
 // recherche du lieu ou est le boitier/equipement
 
-if ($equip_demandeur == "accueil") {
+if ($id_equipement == "0") {
     $monlog = new Log("Access");
-    $result = $monlog->record_inout($id_user, $id_lieu);
+    $result = $monlog->record_inout($uid_user, $id_lieu_equipement);
     // vérifier fichier log pour savoir si entree ou sortie
+    /*
     $dolibarr = new Dolibarr();
     $nom = $dolibarr->get_nom($uid_user);
     $prenom = $dolibarr->get_prenom($uid_user);
     $estajour = $dolibarr->get_ajour($uid_user);
+    */
+
+    if ($result=="ok") {
+        $var = "{\"nom\" : \"$nom\", \"prenom\" : \"$prenom\", \"estajour\" : \"$estajour\"}";
+    } else {
+        $var = "[Error]";
+    }
+    echo ($var);
 
 } else {
     $monlog = new Log("Utilisation");
+    $result = $monlog->record_use($id_equipement, $id_user, $id_lieu);
+    echo $result;
+
 }
 
-// données factices
-$id_equipement = "10";
-$id_user = "5";
-$id_lieu = "32971823";
 
-
-$monlog = new Log();
-$result = $monlog->record_use($id_equipement, $id_user, $id_lieu);
-echo $result;
 
 
 ?>

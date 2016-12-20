@@ -26,7 +26,7 @@ class Fichier {
 	 * @param string $contenu
 	 */
 	public function ecrire($contenu) {
-		$fichier = fopen ( $this->_nomFichier, "a" );
+		$fichier = fopen ( $this->_nomFichier, "a+" );
 		fputs ( $fichier, $contenu );
 		fclose ( $fichier );
 	}

@@ -28,9 +28,9 @@ class Badge {
 		$monfichier = new FichierCSV ( "Affectation_Badge" );
 		$uid_user = $monfichier->read_id_0 ( $this->_tag );
 		if (is_error($uid_user)) {
-            return "[Error] Le tag n'est pas reconnu...<br>"  . $uid_user;
+            return ("[Error] Le tag n'est pas reconnu...<br>"  . $uid_user);
 		} else {
-		return ($uid_user);
+		return ($uid_user[1]);
 		}
 	}
 }

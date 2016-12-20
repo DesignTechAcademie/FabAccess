@@ -30,8 +30,10 @@ class Agenda {
 	public function get($lieu) {
 		$list = array ();
 		$mesevents = file_get_contents ( "OPENAGENDA_URL" ); // récupération du fichier Json
-		// $monfichier = new Fichier("","events",".json");
-		// $mestrucs = $monfichier->lire();
+
+        // données factices
+        $monfichier = new Fichier(PATH_DATA,"events",".json");
+        $mesevents = $monfichier->lire();
 		
 		$json_ok = json_decode ( $mesevents ); // construction de l'objet
 		if (json_last_error () != 0) {

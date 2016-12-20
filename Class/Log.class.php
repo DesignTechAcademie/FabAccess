@@ -59,19 +59,19 @@ class Log {
 		$agenda = new Agenda ();
 		$result = $agenda->get ( $id_lieu );
 		if (! is_array ( $result )) {
-			return ("error : " . $result);
+            $event = null;
 		} else {
 			$event = $result [1];
-			$lieu = $result [2];
 		}
 		$list = [
 				$id_user,
 				$date_deb,
 				$date_fin,
-				$lieu,
+            	$id_lieu,
 				$event
 		];
 		$myfile->write_csv ( $list );
+
 		return ("ok");
 	}
 }

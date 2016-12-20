@@ -1,7 +1,5 @@
 <?php
 
-require_once 'common.inc.php';
-
 /**
  * @author Christian Lopez <chris42.lopez@gmail.com>
  *
@@ -16,7 +14,7 @@ class FichierCSV extends Fichier
      */
     public function __construct($nom)
     {
-        parent::__construct("../Datas", $nom, ".csv");
+        parent::__construct(PATH_DATA, $nom, ".csv");
     }
 
     /**
@@ -47,7 +45,7 @@ class FichierCSV extends Fichier
         if (ctype_digit($id) && $id != "") {
             $contenu = $this->lire_array();
             if (is_error($contenu)) {
-                return "[Error] Problème dans la lecture du fichier...<br>" . $contenu;
+                return ("[Error] Problème dans la lecture du fichier...<br>" . $contenu);
             } else {
                 foreach ($contenu as $value) {
                     $list = explode(";", $value);
@@ -56,7 +54,7 @@ class FichierCSV extends Fichier
                     }
                 }
             }
-            return ("not found");
+            return ("[Error] Donnée non trouvée");
         }
         return 0;
     }

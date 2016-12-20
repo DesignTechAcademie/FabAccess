@@ -27,7 +27,11 @@ class Boitier {
 	public function recherche_boitier() {
 		$monfichier = new FichierCSV ( "Affectation_Boitier" );
 		$nom_equip = $monfichier->read_id_0 ( $this->_mac );
-		return ($nom_equip);
+		if (is_error($nom_equip)) {
+			return ("[Error] Impossible de rechercher le boitier...<br>" . $nom_equip);
+		} else {
+            return ($nom_equip);
+		}
 	}
 }
 ?>

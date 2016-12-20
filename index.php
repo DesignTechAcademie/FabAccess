@@ -1,17 +1,18 @@
 <?php
 
-	require 'view/includes/header.php';
+require_once 'config.inc.php';
+require_once 'common.inc.php';
 
-	if(isset($_GET['page']) && $_GET['page'] == 'signup'){
-  		require 'controller/user/signup.php';
-	}
+require 'view/includes/header.php';
 
-	elseif(isset($_GET['page']) && $_GET['page'] == 'login'){
-  		require 'controller/user/login.php';
-	}
+if (isset($_GET['page']) && $_GET['page'] == 'signup') {
+    require 'controller/signup.php';
+} elseif (isset($_GET['page']) && $_GET['page'] == 'login') {
+    require 'controller/login.php';
+} else {
+    require 'controller/index.php';
+}
 
-	else{
-  		require 'controller/user/index.php';
-	}
+require 'view/includes/footer.php';
 
-	require 'view/includes/footer.php';
+?>

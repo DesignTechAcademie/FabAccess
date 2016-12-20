@@ -4,7 +4,7 @@
  *
  * classe qui retourne l'uid du membre avec son tag
  */
-require_once ('FichierCSV.php');
+require_once('FichierCSV.class.php');
 class Badge {
 	/**
 	 * 
@@ -27,7 +27,11 @@ class Badge {
 	public function recherche_tag() {
 		$monfichier = new FichierCSV ( "Affectation_Badge" );
 		$uid_user = $monfichier->read_id_0 ( $this->_tag );
+		if (is_error($uid_user)) {
+            return "[Error] Le tag n'est pas reconnu...<br>"  . $uid_user;
+		} else {
 		return ($uid_user);
+		}
 	}
 }
 ?>

@@ -4,7 +4,6 @@
  *
  * Communication avec les boitiers
  */
-
 spl_autoload_register(function ($class) {
     include 'Class/' . $class . '.class.php';
 });
@@ -22,6 +21,10 @@ $addr = $_GET['addr'];
 
 $badge = new Badge($tag);
 $uid_user = $badge->recherche_tag();
+if (is_error($uid_user)) {
+    echo "[Error] La requête ne peut pas être traitée...<br>" . $uid_user;
+    exit();
+}
 
 $boitier_demandeur = new Boitier($addr);
 $equip_demandeur = $boitier_demandeur->recherche_boitier();
@@ -47,7 +50,7 @@ $id_lieu = "32971823";
 
 
 $monlog = new Log();
-$result = $monlog->record($id_equipement, $id_user, $id_lieu);
+$result = $monlog->record_use($id_equipement, $id_user, $id_lieu);
 echo $result;
 
 

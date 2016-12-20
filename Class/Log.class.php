@@ -6,9 +6,9 @@
  * Enregistrement des entrées / sorties
  * et recherche des données
  */
-require ('Agenda.class.php');
-require ('Fichier.class.php');
-require ('FichierCSV.class.php');
+require_once ('Agenda.class.php');
+require_once ('Fichier.class.php');
+require_once ('FichierCSV.class.php');
 class Log {
 	/**
 	 * enregistrement de l'utilisation d'un équipement

@@ -50,13 +50,18 @@ class Fichier {
 	 * @return string[] contenu en tableau
 	 */
 	public function lire_array() {
-		$fichier = fopen ( $this->_nomFichier, "r" );
-		$contenu = array ();
-		while ( $line = fgets ( $fichier ) ) {
-			$contenu [] = $line;
-		}
-		fclose ( $fichier );
-		return $contenu;
+        if ( !file_exists ( $this->_nomFichier )) {
+        	return "[Error] Fichier " . $this->_nomFichier . " introuvable !";
+        } else {
+            $fichier = fopen($this->_nomFichier, "r");
+            $contenu = array();
+            while ($line = fgets($fichier)) {
+                $contenu [] = $line;
+            }
+            fclose($fichier);
+            return $contenu;
+
+        }
 	}
 }
 

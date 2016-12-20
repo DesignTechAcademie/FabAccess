@@ -37,13 +37,3 @@ class Message:
             Message = "Il vous reste " + credit + " crédit(s)"
             print(Message)
 
-# une batterie de test
-
-test = Message("Christophe")
-test.afficherBonjour()
-test.afficherAurevoir()
-test.afficherConcierge()
-test.afficherPrix("1 euro")
-test.declarerIncident()
-test.afficherCredit("30")
-test.afficherCredit("0")

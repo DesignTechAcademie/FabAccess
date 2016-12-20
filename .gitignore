@@ -1,4 +1,4 @@
 /.project
 .metadata/
 .idea/
-
+/config.inc.php

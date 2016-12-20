@@ -5,79 +5,127 @@
  */    
  
 class Bank {
-	protected $_Cptp;
-	protected $_Tarif;
-	protected $_Infoid;
+    /**
+     * @var
+     */
+    protected $_Cptp;
+    /**
+     * @var
+     */
+    protected $_Tarif;
+    /**
+     * @var
+     */
+    protected $_Infoid;
 	
-	
-	public function __construct($cptp, $tarif, $Infoid){
-		$this-> _Cptp = $cptp;
-		$this-> _Tarif = $tarif;
-		$this-> _Infoid = $Infoid;
+
+    /**
+     * Bank constructor.
+     * @param $cptp
+     * @param $tarif
+     * @param $infoid
+     */
+    public function __construct($cptp, $tarif, $infoid){
+		$this->_Cptp = $cptp;
+		$this->_Tarif = $tarif;
+		$this->_Infoid = $infoid;
 	}
-	
-	public function getCptp(){
-		return $this -> _Cptp;
+
+
+    /**
+     * @return mixed
+     */
+    public function getCptp(){
+		return $this->_Cptp;
 	}
-	public function getTarif(){
-		return $this -> _Tarif;
+
+
+    /**
+     * @return mixed
+     */
+    public function getTarif(){
+		return $this->_Tarif;
 	}
-	
-	private function getInfoid(){
-		return $this -> _Infoid;
+
+
+    /**
+     * @return mixed
+     */
+    private function getId(){
+		return $this->_Infoid;
 	}
 	
 
 
-	//Pour le compte prépayé
 
-	public function lire_(){
+
+    /**
+     * @return string
+     */
+    public function lireCptp(){
 		$file = fopen($this->_Cptp,"r");
-		$contenu = _Cptp;
+		$contenu = "";
 		while($line=fgets($file)){
 			$contenu .= $line;
 		}
 		fclose($file);
 		return $contenu;
 	}
-	public function ecrire($contenu){
-		$file = fopen($this->cptp,"w");
-		fputs($file,$contenu);
-		fclose($file);
-	}
-	
-	//Pour les tarif
-	public function __construct($file){
-		$this->_tarif= $file;
-	}
-	public function lireTarif(){
-		$file = fopen($this->tarif,"r");
-		$contenu = "$tarif";
-		while($line=fgets($file)){
-			$contenu .= $line;
-		}
-		fclose($file);
-		return $contenu;
-	}
-	public function ecrire($contenu){
-		$file = fopen($this->tarif,"w");
-		fputs($file,$contenu);
-		fclose($file);
-	}
-	
-	//Pour les infos de l'utilsateur 
 
-	public function lire_(){
-		$file = fopen($this->infoid,"r");
-		$contenu = "$_Infoid";
+    /**
+     * @param $contenu
+     */
+    public function ecrireCptp($contenu){
+		$file = fopen($this->_Cptp,"w");
+		fputs($file,$contenu);
+		fclose($file);
+	}
+	
+
+
+
+    /**
+     * @return string
+     */
+    public function lireTarif(){
+		$file = fopen($this->_Tarif,"r");
+		$contenu = "";
 		while($line=fgets($file)){
 			$contenu .= $line;
 		}
 		fclose($file);
 		return $contenu;
 	}
-	public function ecrire($contenu){
-		$file = fopen($this->infoid,"w");
+
+    /**
+     * @param $contenu
+     */
+    public function ecrireTarif($contenu){
+		$file = fopen($this->_Tarif,"w");
+		fputs($file,$contenu);
+		fclose($file);
+	}
+	
+
+
+    /**
+     * @return string
+     */
+    public function lireInfo(){
+		$file = fopen($this->_Infoid,"r");
+		$contenu = "";
+		while($line=fgets($file)){
+			$contenu .= $line;
+		}
+		fclose($file);
+		return $contenu;
+	}
+
+    /**
+     * @param $contenu
+     */
+    public function ecrireInfo($contenu){
+		$file = fopen($this->_Infoid,"w");
 		fputs($file,$contenu);
 		fclose($file);
 	}

@@ -3,8 +3,8 @@
 /**
  * @author Flavien CERIANI <flavien.ceriani@gmail.com>
  */
-require ('bank.class.php');
-require ('FichierCSV.php');
+require ('Bank.php');
+require ('FichierCSV.class.php');
 
 /**
  * classe fille de user

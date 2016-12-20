@@ -1,13 +1,22 @@
 <?php
 /**
- * @author Julien Theze <julien.theze@gmail.com>
  * Cette classe récupère des données d'utilisateur dans Dolibarr via le module Web Services REST
+ * 
+ * @author Julien Theze <julien.theze@gmail.com>
  */
 
 include('config.inc.php');
 
 class Dolibarr {
 
+	/**
+	 * Fonction qui interroge l'API Dolibarr et renvoie un JSON (enfin pas tout de suite...)
+	 * 
+	 * Pour le moment, avec un Dolibarr configuré, cette fonction renvoie vers le résultat XML/JSON des utilisateurs.
+	 * L'accès aux adhérents (members) fonctionne différemment, et n'est pas encore maîtrisé !
+	 * 
+	 * @param unknown $id	identifiant de l'utilisateur Dolibarr
+	 */
 	public function getUser($id) {
 		$url = API_URL.$id.API_KEY; // URL interrogeant les données d'un adhérent
 		$user = header('Location: '.$url);

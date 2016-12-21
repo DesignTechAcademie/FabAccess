@@ -12,23 +12,17 @@ class Bank {
     /**
      * @var
      */
-    protected $_Tarif;
-    /**
-     * @var
-     */
     protected $_Infoid;
 	
 
     /**
      * Bank constructor.
      * @param $cptp
-     * @param $tarif
-     * @param $infoid
+     * @param $Infoid
      */
-    public function __construct($cptp, $tarif, $infoid){
+    public function __construct($cptp, $Infoid){
 		$this->_Cptp = $cptp;
-		$this->_Tarif = $tarif;
-		$this->_Infoid = $infoid;
+		$this->_Infoid = $Infoid;
 	}
 
 
@@ -43,20 +37,9 @@ class Bank {
     /**
      * @return mixed
      */
-    public function getTarif(){
-		return $this->_Tarif;
-	}
-
-
-    /**
-     * @return mixed
-     */
-    private function getId(){
+    private function getInfoid(){
 		return $this->_Infoid;
 	}
-	
-
-
 
 
     /**
@@ -80,33 +63,6 @@ class Bank {
 		fputs($file,$contenu);
 		fclose($file);
 	}
-	
-
-
-
-    /**
-     * @return string
-     */
-    public function lireTarif(){
-		$file = fopen($this->_Tarif,"r");
-		$contenu = "";
-		while($line=fgets($file)){
-			$contenu .= $line;
-		}
-		fclose($file);
-		return $contenu;
-	}
-
-    /**
-     * @param $contenu
-     */
-    public function ecrireTarif($contenu){
-		$file = fopen($this->_Tarif,"w");
-		fputs($file,$contenu);
-		fclose($file);
-	}
-	
-
 
     /**
      * @return string

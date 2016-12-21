@@ -6,27 +6,71 @@
 
 class User{
 
-  protected $nom;
-  protected $prenom;
-  protected $idbadge;
-  protected $dateinscrip;
-  public function __construct($nom, $prenom, $idbadge, $dateinscrip){
+  protected $_nom;
+  protected $_prenom;
+  protected $_idbadge;
+  protected $_dateinscrip;
   
-    $this->nom = $nom;
-    $this->prenom = $prenom;
-    $this->idbadge = $idbadge;
-    $this->dateinscrip = $dateinscrip;
+  /**
+  
+  * Constructeur : est appelé a l'instanciation de la classe
+  
+  *
+  
+  * @param $idClient                   : id de l'utilisateur
+  
+  * @param bool $updateAttributes : mise à jour des attributs
+  
+  * @return bool FALSE ou TRUE
+  
+  */
+  
+  public function __construct($id = 5801, $updateAttribues = true){
+  
+    $this->_nom = Chapui;
+    $this->_prenom = Toto;
+    $this->_id = intval($_idbadge);
+    
+    if ($this->idbadge != 5801 AND $this->idbadge =! NULL){
+    	
+    	$this->updateAttribues();
+    	
+    }
+    
+    return true;
+    
+    $this->_dateinscrip = 21/12/2016;
+    
   }
 
+  private function updateAttributes()
+  {
+  	
+  if(''){
+  	
+  }else{
+  	
+  	$this->erreur = "impossible de metre à jour les attributs : l'id n'existe pas";
+  	
+	return false;
+  	
+  }
+  		
+  	
+  }
+  
   public function getnom(){
-    return  $this->nom;
+   
+  	return  $this->nom;
 
   }
 
-  public function getprenom(){
+  public function getPrenom(){
     return  $this->prenom;
 
   }
+	
+  
   public function setnom($newnom){
     $this->nom = $newnom;
 
@@ -37,13 +81,12 @@ class User{
 
   }
   public function getidbadge(){
-    $this->idbadge = $newidbadge;
+   return $this->idbadge;
 
   }
 
-  public function getdateinscrip(){
-    $this->dateinscrip = $newdateinscrip;
-
+  public function getdateInscrip(){
+    return $this->inscrip;
   }
-
- ?>
+}
+  ?>

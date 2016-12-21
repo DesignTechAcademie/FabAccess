@@ -112,6 +112,19 @@ class FichierCSV extends Fichier
         }
         return 0;
     }
+
+    /**
+     * Renvoi toute les lignes d'un fichier CSV dans un tableau
+     * @return array
+     */
+    public function getAll() {
+        $result = $this->lire_array();
+        if (is_error($result)) {
+            return "[Error] Impossible de lire le fichier CSV <br>".$result;
+        } else {
+            return $result;
+        }
+    }
 }
 
 ?>

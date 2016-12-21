@@ -13,4 +13,14 @@
 define('API_URL',"http://...");
 define('API_KEY',"?api_key=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
 define('OPENAGENDA_URL',"https://openagenda.com/agendas/61707059/events.json?");
+define('SUBFOLDER','/FabAccess'); // without final '/'
+
+
+
+if (isset($_SERVER['DOCUMENT_ROOT']) && $_SERVER['DOCUMENT_ROOT']<>"") {
+    define('DOC_ROOT', $_SERVER['DOCUMENT_ROOT']); // absolute path of apache DOCUMENT_ROOT '/'
+}
+define('PATH_ROOT', DOC_ROOT.SUBFOLDER); // absolute path of html files on the server without final '/'
+define('PATH_DATA', PATH_ROOT.'/Datas/'); // absolute path of data files on the server with final '/'
+
 ?>

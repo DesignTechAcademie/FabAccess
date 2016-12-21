@@ -1,35 +1,43 @@
 
 <?php
-// autor patricia
+/**
+ * @author Patricia <limmagin@hotmail.fr>
+ */
+
  class stat{
 
-    public function __construct($Equip) {
+     private $_fichier;
+     private $id_Equip;
 
-          	$this ->_fichier =$date;
+   /* public function __construct($Equip) {
+
+          	$this->_fichier =$date;
       /* L'accès aux informations a-t-il échoué ? */
-        if (!$stat) {
+   /*     if (!$stat) {
              echo 'L\'appel à stat() a échoué...';
            } else {
      /*
       * Nous voulons que la date et heure d'accès soit d'une
       * semaine après la date courante.
       */
-           $atime = $stat['atime'] + 604800;
+     /*      $atime = $stat['atime'] + 604800;
            }
-    }
+    /* }
+
      /* Touchons le fichier ! */
-    public function touch ($time){
+  /**  public function touch ($time){
      	if(!touch('', time(), $atime)) {
          echo 'Échec lors de l\'appel à la fonction touch()...';
        } else {
          echo 'L\'appel à touch() a réussi . ';
        }
     }
+   */
 
-    public function getdata ($date_debut,$date_fin,$id_Equi = null){
+    public function getdata ($date_debut,$date_fin,$id_Equip = null){
 
-     $this -> id_Equip = $date.$datedebut.$datefin;
-     $list = [$id_Equip,$id_user,$date_deb,$date_fin,$lieu,$event];
+     $this->id_Equip = $date.$date_debut.$date_fin;
+     $list = [$id_Equip,$id_user,$date_debut,$date_fin,$lieu,$event];
      $myfile->write_csv($list);
      return ("ok");{
 

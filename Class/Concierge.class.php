@@ -25,14 +25,13 @@ class Concierge extends user{
   }
 
     /**
-     * @param $ID
-     * @param $IDbadge
-     *
+     * @param $tag
      */
-  public function affectation_badge($ID, $IDbadge){
-      $ID = $idbadge-> recherche_tag();
-      $fichier = new FichierCSV($monfichier);
-    $list = [$ID, $IDbadge];
+  public function affectation_badge($tag){
+      $idbadge = new Badge();
+      $idbadge->recherche_tag();
+      $idbadge = new FichierCSV("affectation badge");
+      $list = [$tag, $idbadge];
       $idbadge-> write_csv($list);
   }
 
@@ -42,7 +41,7 @@ class Concierge extends user{
      * @param $cptp
      */
   public function gestion_compte_prepaye($ID, $debit, $cptp){
-    $fichier = new Bank();
+    $fichier =new Bank($cptp);
     $list = [$ID, $debit, $cptp];
     $fichier-> lireInfo();
     $fichier-> ecrireInfo($list);
@@ -50,12 +49,17 @@ class Concierge extends user{
 
     /**
      * @param $ID
+     * @param $export
+     * @param $nom
+     * @param $prenom
+     * @param $cptp
+     * @param $dateinscrip
      */
-  public function getInfoMembre($ID){
+  public function getInfoMembre($ID, $export, $nom, $prenom, $cptp, $dateinscrip){
     $monfichier = new FichierCSV("", $export."_données");
-    $list = [$ID, $nom, $prenom, $cptp, $adhesion];
-    $nomFichier-> lire($list);
-    $nomFichier-> ecrire($list);
+    $list = [$ID, $nom, $prenom, $cptp, $dateinscrip];
+    $monfichier-> lire($list);
+    $monfichier-> ecrire($list);
   }
 
     /**
@@ -67,4 +71,5 @@ class Concierge extends user{
   }
   
 }
+
  ?>

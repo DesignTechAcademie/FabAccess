@@ -13,7 +13,7 @@
 define('API_URL',"http://...");
 define('API_KEY',"?api_key=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
 define('OPENAGENDA_URL',"https://openagenda.com/agendas/61707059/events.json?");
-define('SUBFOLDER','/FabAccess'); // without final '/'
+define('SUBFOLDER','/FabAccess'); // sans le slash final, ET si vous n'uilisez pas un serveur web, donnez le chemin d'accès complet au répertoire du projet
 
 
 

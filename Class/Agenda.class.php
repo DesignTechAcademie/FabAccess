@@ -4,15 +4,7 @@
  * 
  * Manipulation du fichier JSON de openagenda
  * renvoie une chaine si erreur ou pas d'événement
- * 
- * methode get :
- * renvoie un tableau avec trois données de l'événement :
- * uid event, titre, lieu
- * 
- * methode get_all :
- * renvoie un tableau 2 dimensions avec  six données de l'événement :
- * uid event, titre, uid lieu, lieu, date début, date fin
- * 
+ *  
  * utilisation :
  * $agenda = new Agenda ();
  *		$result = $agenda->get ( $id_lieu );
@@ -26,15 +18,26 @@
  */
 include ('config.inc.php');
 class Agenda {
+/**
+ * methode get :
+ * 
+ * renvoie un tableau avec trois données de l'événement :
+ * 
+ * @return uid event, titre, lieu
+ * 
+ * @paramr int $lieu
+ */
 	public function get($lieu) {
 		$list = array ();
 		$mesevents = file_get_contents ( "OPENAGENDA_URL" ); // récupération du fichier Json
-		// $monfichier = new Fichier("","events",".json");
-		// $mestrucs = $monfichier->lire();
+
+        // données factices
+        $monfichier = new Fichier(PATH_DATA,"events",".json");
+        $mesevents = $monfichier->lire();
 		
 		$json_ok = json_decode ( $mesevents ); // construction de l'objet
 		if (json_last_error () != 0) {
-			return ("Json error : " . json_last_error ());
+			return ("[Error] fichier Json non décodé : " . json_last_error ());
 		}
 		
 		$number = $json_ok->{'total'}; // nombre d'événements
@@ -60,6 +63,15 @@ class Agenda {
 		}
 		return ("no event found");
 	}
+	/**
+	 * methode get_all :
+	 *
+	 * renvoie un tableau 2 dimensions avec  six données de l'événement :
+	 *
+	 * @return uid event, titre, uid lieu, lieu, date début, date fin
+	 *
+	 * @param none
+	 */
 	public function get_all() {
 		$tableau = array ();
 		$mesevents = file_get_contents ( "OPENAGENDA_URL" ); // récupération du fichier Json
@@ -68,7 +80,7 @@ class Agenda {
 		
 		$json_ok = json_decode ( $mesevents ); // construction de l'objet
 		if (json_last_error () != 0) {
-			return ("Json error : " . json_last_error ());
+			return ("[Error] fichier Json non décodé : " . json_last_error ());
 		}
 		
 		$number = $json_ok->{'total'}; // nombre d'événements

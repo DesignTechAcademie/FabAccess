@@ -6,7 +6,7 @@
 
  class stat{
  	
-    function _construct($_date,$id_Equip) {
+    function _construct($_date,$_Equip) {
               $date = date("dmY");
               $this ->_fichier = $_date.$_datedebut.$_datefin;
       
@@ -29,7 +29,7 @@
        }  
       }
        
-   function getdata ($date_debut,$date_fin,$id_Equi = null){
+   function getdata ($date_debut,$date_fin,$id_Equip = null){
      $this -> id_Equip = $date.$datedebut.$datefin; 
 
      if($id_Equip){
@@ -39,7 +39,7 @@
      }
    }
   
-     function getArray($date_debut,$date_fin,$id_Equi) {
+     function getArray($date_debut,$date_fin,$_Equip) {
      	
      	//Un tableau existant peut être modifié en y assignant explicitement des valeurs.
      	//L'assignation d'une valeur dans un tableau est effectué en spécifiant la clé, entre crochets. La clé peut également ne pas être renseignée, sous la forme : [].

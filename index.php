@@ -9,6 +9,8 @@ if (isset($_GET['page']) && $_GET['page'] == 'signup') {
     require 'controller/signup.php';
 } elseif (isset($_GET['page']) && $_GET['page'] == 'login') {
     require 'controller/login.php';
+} elseif (isset($_GET['page']) && $_GET['page'] == 'stat') {
+    require 'controller/stat.php';
 } else {
     require 'controller/index.php';
 }

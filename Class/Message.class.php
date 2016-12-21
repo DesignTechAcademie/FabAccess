@@ -6,6 +6,7 @@
  * Date: 21/12/16
  * Time: 08:45
  */
+require("FichierCSV.class.php");
 class Message
 {
 
@@ -19,9 +20,18 @@ private $_dateConfirm; // la date de confirmation de lecture du message
 
     }
 
-    public function enregisterMessages($text,$user)
+    public function enregistrerMessages($text,$user)
     {
+        $Message = new FichierCSV("Message");
 
+        if($Message->write_csv($text))
+        {
+            return "OK";
+        }
+        else
+        {
+            return "(Error):Erreur lors de la création du message";
+        }
 
 
     }

@@ -14,24 +14,31 @@ private $_messages; // le message
 private $_IDuser; // le destinataire
 private $_dateConfirm; // la date de confirmation de lecture du message
 
+    public function __construct()
+    {
 
+    }
 
-    public function enregisterMessages($text,$user){
+    public function enregisterMessages($text,$user)
+    {
 
 
 
     }
 
-    public function getMessages($user){
+    public function getMessages($user)
+    {
 
     }
 
-    public function  getAllMessage(){
+    public function  getAllMessage()
+    {
 
     }
 
 
-    public function confirmeMessages($IDMessage){
+    public function confirmeMessages($IDMessage)
+    {
 
 
     }

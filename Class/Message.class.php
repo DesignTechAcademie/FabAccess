@@ -6,34 +6,28 @@
  * Date: 21/12/16
  * Time: 08:45
  */
-require("FichierCSV.class.php");
+
 class Message
 {
-
-private $_IDmessages; // le numéro du message
-private $_messages; // le message
-private $_IDuser; // le destinataire
-private $_dateConfirm; // la date de confirmation de lecture du message
+    private $_dateEnvoie;
+    private $_idMessage;
 
     public function __construct()
     {
-
+        $this->_dateEnvoie = date(j."/".m."/".Y.",".H.":".i);
+        $this->_idMessage = $_POST[id];
     }
 
     public function enregistrerMessages($text,$user)
     {
-        $Message = new FichierCSV("Message");
-
-        if($Message->write_csv($text))
-        {
-            return "OK";
-        }
-        else
-        {
-            return "(Error):Erreur lors de la création du message";
-        }
-
-
+        $separ = ";";
+        $saut = "\n";
+        $file = fopen("Message.csv","a+");
+        fputs($file, $this->idMessage.$separ);
+        fputs($file, $user.$separ);
+        fputs($file, $text.$separ);
+        fputs($file, $this->_dateEnvoie.$separ.$saut);
+        fclose($file);
     }
 
     public function getMessages($user)

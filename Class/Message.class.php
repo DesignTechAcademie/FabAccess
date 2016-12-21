@@ -7,18 +7,34 @@
  * Time: 08:45
  */
 
+/**
+ * Class Message
+ */
 class Message
 {
+    /**
+     * @var false|string
+     */
     private $_dateEnvoie;
+    /**
+     * @var
+     */
     private $_idMessage;
 
+    /**
+     * Message constructor.
+     */
     public function __construct()
     {
         $this->_dateEnvoie = date(j."/".m."/".Y.",".H.":".i);
         $this->_idMessage = $_POST[id];
     }
 
-    public function enregistrerMessages($text,$user)
+    /**
+     * @param $text
+     * @param $user
+     */
+    public function enregistrerMessages($text, $user)
     {
         $separ = ";";
         $saut = "\n";
@@ -30,17 +46,26 @@ class Message
         fclose($file);
     }
 
+    /**
+     * @param $user
+     */
     public function getMessages($user)
     {
 
     }
 
+    /**
+     *
+     */
     public function  getAllMessage()
     {
 
     }
 
 
+    /**
+     * @param $IDMessage
+     */
     public function confirmeMessages($IDMessage)
     {
 

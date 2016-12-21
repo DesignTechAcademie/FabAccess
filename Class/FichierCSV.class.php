@@ -38,7 +38,7 @@ class FichierCSV extends Fichier
      * un seul ID dans le fichier ou le premier trouvé
      *
      * @param string $id
-     * @return string[] liste des données de la ligne
+     * @return string[]|string liste des données de la ligne
      */
     public function read_id_0($id)
     { // cherche d'un ID dans la 1ere colonne d'un fichier csv
@@ -70,10 +70,10 @@ class FichierCSV extends Fichier
     { // recherche d'un item dans le fichier csv
         if ($item != "") {
             $contenu = $this->lire_array();
-            foreach ($contenu as $value) {
-                $list = explode(";", $value);
-                foreach ($list as $value) {
-                    if ($item == $value) { // retour de la 1ère ligne trouvée
+            foreach ($contenu as $value1) {
+                $list = explode(";", $value1);
+                foreach ($list as $value2) {
+                    if ($item == $value2) { // retour de la 1ère ligne trouvée
                         return ($list); // de l'item cherchée sous forme de liste
                     }
                 }
@@ -96,10 +96,10 @@ class FichierCSV extends Fichier
         $trouve = 0;
         if ($item != "") {
             $contenu = $this->lire_array();
-            foreach ($contenu as $value) {
-                $list = explode(";", $value); // ligne en tableau
-                foreach ($list as $value) { // chaque élément de la ligne
-                    if ($item == $value) {
+            foreach ($contenu as $value1) {
+                $list = explode(";", $value1); // ligne en tableau
+                foreach ($list as $value2) { // chaque élément de la ligne
+                    if ($item == $value2) {
                         $trouve++; // mémorisation de la ligne trouvée
                         $tableau [] = $list; // de l'item cherchée sous forme de liste
                     }

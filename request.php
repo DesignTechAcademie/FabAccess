@@ -60,9 +60,10 @@ if ($id_equipement == "0") {
     echo ($var);
 
 } else {
-    $monlog = new Log("Utilisation");
-    $result = $monlog->record_use($id_equipement, $id_user, $id_lieu);
-    echo $result;
+    //$monlog = new Log("Utilisation");
+    //$result = $monlog->record_use($id_equipement, $id_user, $id_lieu);
+    //echo $result;
+    echo ("Utilisations ************");
 
 }
 

@@ -14,7 +14,10 @@ class FichierCSV extends Fichier
      */
     public function __construct($nom)
     {
-        parent::__construct(PATH_DATA, $nom, ".csv");
+        $result = parent::__construct(PATH_DATA, $nom, ".csv");
+        if (is_error($result)) {
+        	return ("[Error] La requête ne peut pas être traitée...<br>" . $result);
+        }
     }
 
     /**

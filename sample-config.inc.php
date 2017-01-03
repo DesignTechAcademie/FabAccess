@@ -20,4 +20,5 @@ if (isset($_SERVER['DOCUMENT_ROOT']) && $_SERVER['DOCUMENT_ROOT']<>"") {
 }
 define('PATH_ROOT', DOC_ROOT.SUBFOLDER); // absolute path of html files on the server without final '/'
 define('PATH_DATA', PATH_ROOT.'/Datas/'); // absolute path of data files on the server with final '/'
+
 ?>

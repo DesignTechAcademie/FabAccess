@@ -3,7 +3,9 @@
  * Ce fichier contient des petites fonctions utilisées de manière globale dans tout le projet
  */
 
-
+spl_autoload_register(function ($class) {
+    include 'Class/' . $class . '.class.php';
+});
 
 /**
  * Vérifie si une variable est une chaine de caractère qui commence par "[Error]"

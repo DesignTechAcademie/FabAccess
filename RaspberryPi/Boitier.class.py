@@ -2,8 +2,10 @@
 # -*-coding:Utf-8 -*
 import serial
 import time
-import lcddriver
+#import lcddriver
 from Message.class.py import *     #import de tout les modules de la class message (christophe junier)
+import requests #permet de faire les requêtes au php
+from urllib2 import *
 GPIO.cleanup()  # Initialisation du GPIOs
 GPIO.setmode(GPIO.BCM)  # Choix du mode de numérotation des ports : identique aux inscriptions sur le Cobbler
 GPIO.setup(12, GPIO.OUT) #led verte
@@ -15,6 +17,7 @@ class Boitier(): # Définition de notre classe
     def __init__(self): # Notre méthode constructeur
         self.nom=nom
         self.ID=ID
+        self.mac=mac
 
     def lectureRFID():
         ser = serial.Serial('/dev/ttyUSB0', 2400, timeout=1) # replace '/dev/ttyUSB0' with your port
@@ -27,12 +30,23 @@ class Boitier(): # Définition de notre classe
                 print "dec: " + str(int(response[-8:], 16))
                 print(response)
             time.sleep(1)
+            self.ID=response
             else:
 
             break   #ou le mettre exactement ?
 
         ser.close()
         return response  #on renvoit le résultat du badge
+
+    def getMAC():
+    self.mac = open('/sys/class/net/eth0/address').read()
+    return self.mac
+
+    def sendRFIDMAC():
+        tag=self.ID
+        addr=self.mac
+        urlopen('localhost/request.php?tag=%s&addr=%s' %(tag,addr))
+
 
     def getMessage():
 
